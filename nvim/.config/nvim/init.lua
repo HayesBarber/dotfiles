@@ -12,5 +12,13 @@ if vim.g.vscode then
   vim.keymap.set('n', '<leader>e', function()
     vscode.action('workbench.view.explorer')
   end, { desc = 'Focus VSCode Explorer' })
+  
+  vim.keymap.set('n', '<leader>j', function()
+    vscode.action('workbench.action.previousEditor')
+  end, { desc = 'Previous tab' })
+
+  vim.keymap.set('n', '<leader>k', function()
+    vscode.action('workbench.action.nextEditor')
+  end, { desc = 'Next tab' })
 
 end
