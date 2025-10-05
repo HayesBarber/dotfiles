@@ -7,11 +7,11 @@ cycle-layout:
 
 throw-space-left:
   mod: mod1
-  key: i
+  key: "["
 
 throw-space-right:
   mod: mod1
-  key: o
+  key: "]"
 
 select-fullscreen-layout:
   mod: mod1
