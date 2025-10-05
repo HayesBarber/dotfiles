@@ -29,4 +29,12 @@ if vim.g.vscode then
     vscode.action('workbench.action.moveEditorToPreviousGroup')
   end, { desc = 'Move editor to previous group' })
 
+  vim.keymap.set('n', '<leader>h', function()
+    vscode.action('workbench.action.focusLeftGroup')
+  end, { desc = 'Focus Left Group' })
+
+  vim.keymap.set('n', '<leader>l', function()
+    vscode.action('workbench.action.focusRightGroup')
+  end, { desc = 'Focus Right Group' })
+
 end
