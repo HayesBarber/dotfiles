@@ -1,0 +1,18 @@
+mod1:
+  - option
+
+cycle-layout:
+  mod: <NONE>
+  key: <NONE>
+
+throw-space-left:
+  mod: mod1
+  key: i
+
+throw-space-right:
+  mod: mod1
+  key: o
+
+select-fullscreen-layout:
+  mod: mod1
+  key: ;
