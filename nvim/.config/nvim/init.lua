@@ -37,4 +37,8 @@ if vim.g.vscode then
     vscode.action('workbench.action.focusRightGroup')
   end, { desc = 'Focus Right Group' })
 
+  vim.keymap.set('n', '<leader>a', function()
+    vscode.action('workbench.action.closeEditorsInGroup')
+  end, { desc = 'Close Editors In Group' })
+
 end
