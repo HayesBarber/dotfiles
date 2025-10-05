@@ -44,5 +44,13 @@ if vim.g.vscode then
   vim.keymap.set('n', '<leader>gd', function()
     vscode.action('git.viewChanges')
   end, { desc = 'Git - View Changes' })
+  
+  vim.keymap.set('n', 'n', function()
+    vscode.action('workbench.action.increaseViewSize')
+  end, { desc = 'Increase View Size' })
+
+  vim.keymap.set('n', 'm', function()
+    vscode.action('workbench.action.decreaseViewSize')
+  end, { desc = 'Decrease View Size' })
 
 end
