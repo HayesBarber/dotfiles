@@ -15,4 +15,4 @@ throw-space-right:
 
 select-fullscreen-layout:
   mod: mod1
-  key: p
+  key: ;
