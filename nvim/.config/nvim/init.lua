@@ -20,5 +20,13 @@ if vim.g.vscode then
   vim.keymap.set('n', '<leader>k', function()
     vscode.action('workbench.action.nextEditor')
   end, { desc = 'Next tab' })
+  
+  vim.keymap.set('n', '<leader>]', function()
+    vscode.action('workbench.action.moveEditorToNextGroup')
+  end, { desc = 'Move editor to next group' })
+
+  vim.keymap.set('n', '<leader>[', function()
+    vscode.action('workbench.action.moveEditorToPreviousGroup')
+  end, { desc = 'Move editor to previous group' })
 
 end
