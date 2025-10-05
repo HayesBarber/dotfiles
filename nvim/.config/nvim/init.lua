@@ -41,4 +41,8 @@ if vim.g.vscode then
     vscode.action('workbench.action.closeEditorsInGroup')
   end, { desc = 'Close Editors In Group' })
 
+  vim.keymap.set('n', '<leader>gd', function()
+    vscode.action('git.viewChanges')
+  end, { desc = 'Git - View Changes' })
+
 end
