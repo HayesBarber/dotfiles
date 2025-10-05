@@ -12,3 +12,7 @@ throw-space-left:
 throw-space-right:
   mod: mod1
   key: o
+
+select-fullscreen-layout:
+  mod: mod1
+  key: p
