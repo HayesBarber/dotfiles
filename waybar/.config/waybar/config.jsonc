@@ -6,12 +6,6 @@
   "spacing": 4, // Gaps between modules (4px)
   "modules-left": ["hyprland/workspaces"],
   "modules-center": [],
-  "modules-right": [
-    "pulseaudio",
-    "network",
-    "battery",
-    "battery#bat2",
-    "clock"
-  ],
+  "modules-right": ["pulseaudio", "network", "battery", "clock"],
   "include": ["~/.config/waybar/modules.json"]
 }
