@@ -61,4 +61,8 @@ if vim.g.vscode then
     vscode.action('copyRelativeFilePath')
   end, { desc = 'Copy Relative File Path' })
 
+  vim.keymap.set('n', '<leader>rs', function()
+    vscode.action('editor.action.rename')
+  end, { desc = 'Rename Symbol' })
+
 end
