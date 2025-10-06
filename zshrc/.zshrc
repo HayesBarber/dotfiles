@@ -1,3 +1,5 @@
+eval "$(starship init zsh)"
+
 alias cl="clear"
 alias gcm="git checkout main || git checkout master"
 alias gl="git pull"
