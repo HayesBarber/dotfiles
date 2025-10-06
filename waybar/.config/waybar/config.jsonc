@@ -4,8 +4,8 @@
   "position": "top", // Waybar position (top|bottom|left|right)
   "height": 42, // Waybar height (to be removed for auto height)
   "spacing": 4, // Gaps between modules (4px)
-  "modules-left": ["hyprland/workspaces"],
-  "modules-center": [],
-  "modules-right": ["pulseaudio", "network", "battery", "clock"],
+  "modules-center": ["hyprland/workspaces"],
+  "modules-left": ["clock"],
+  "modules-right": ["pulseaudio", "network", "battery"],
   "include": ["~/.config/waybar/modules.json"]
 }
