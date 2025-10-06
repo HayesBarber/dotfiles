@@ -53,4 +53,12 @@ if vim.g.vscode then
     vscode.action('workbench.action.decreaseViewSize')
   end, { desc = 'Decrease View Size' })
 
+  vim.keymap.set('n', '<leader>cp', function()
+    vscode.action('copyFilePath')
+  end, { desc = 'Copy File Path' })
+
+  vim.keymap.set('n', '<leader>cr', function()
+    vscode.action('copyRelativeFilePath')
+  end, { desc = 'Copy Relative File Path' })
+
 end
