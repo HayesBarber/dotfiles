@@ -65,4 +65,8 @@ if vim.g.vscode then
     vscode.action('editor.action.rename')
   end, { desc = 'Rename Symbol' })
 
+  vim.keymap.set('n', '<leader>ca', function()
+    vscode.action('editor.action.quickFix')
+  end, { desc = 'Quick Fix' })
+
 end
