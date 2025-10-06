@@ -1,3 +1,4 @@
+alias cl="clear"
 alias gcm="git checkout main || git checkout master"
 alias gl="git pull"
 alias gr="git restore ."
