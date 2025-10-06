@@ -12,7 +12,7 @@ alias tree="tree -C -F --dirsfirst"
 alias ls="tree -L 1"
 
 format_current_branch() {
-    current_branch 2> /dev/null | sed "s/\(.*\)/[\1] /"
+  current_branch 2> /dev/null | sed "s/\(.*\)/[\1] /"
 }
 
 copy() { tee /dev/tty | pbcopy; }
@@ -20,13 +20,13 @@ copy_branch() { current_branch | copy; }
 cpath() { pwd | copy; }
 
 acm() {
-    git add .
-    local message="$*"
-    if [[ -z "$message" ]]; then
-        message="auto commit"
-    fi
-    git commit -m "$message"
-    git push
+  git add .
+  local message="$*"
+  if [[ -z "$message" ]]; then
+      message="auto commit"
+  fi
+  git commit -m "$message"
+  git push
 }
 
 pr() {
