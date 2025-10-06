@@ -49,7 +49,7 @@
     "format-icons": ["", "", "", "", ""]
   },
   "clock": {
-    "format": "{:%H:%M | %e %B} ",
+    "format": "{:%I:%M %p | %B %e} ",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "format-alt": "{:%Y-%m-%d}"
   }
