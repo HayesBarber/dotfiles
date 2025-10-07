@@ -97,6 +97,7 @@ require("lazy").setup({
       end,
       opts = {},
     },
+    { 'folke/flash.nvim', },
   },
   install = {},
   checker = { enabled = true },
