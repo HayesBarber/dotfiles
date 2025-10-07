@@ -14,8 +14,8 @@ map('n', '<leader>l', function() vscode.action('workbench.action.focusRightGroup
 map('n', '<leader>a', function() vscode.action('workbench.action.closeEditorsInGroup') end,
     { desc = 'Close Editors In Group' })
 map('n', '<leader>gd', function() vscode.action('git.viewChanges') end, { desc = 'Git - View Changes' })
-map('n', 'n', function() vscode.action('workbench.action.increaseViewSize') end, { desc = 'Increase View Size' })
-map('n', 'm', function() vscode.action('workbench.action.decreaseViewSize') end, { desc = 'Decrease View Size' })
+map('n', '<leader>n', function() vscode.action('workbench.action.increaseViewSize') end, { desc = 'Increase View Size' })
+map('n', '<leader>m', function() vscode.action('workbench.action.decreaseViewSize') end, { desc = 'Decrease View Size' })
 map('n', '<leader>cp', function() vscode.action('copyFilePath') end, { desc = 'Copy File Path' })
 map('n', '<leader>cr', function() vscode.action('copyRelativeFilePath') end, { desc = 'Copy Relative File Path' })
 map('n', '<leader>rs', function() vscode.action('editor.action.rename') end, { desc = 'Rename Symbol' })
