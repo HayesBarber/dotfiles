@@ -102,3 +102,9 @@ require("lazy").setup({
   install = {},
   checker = { enabled = true },
 })
+
+local cursors = require('vscode-multi-cursor')
+
+vim.keymap.set({ 'n', 'x', 'i' }, '<cs-l>', function()
+  cursors.selectHighlights()
+end)
