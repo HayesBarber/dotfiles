@@ -1,0 +1,12 @@
+[
+  {
+    "key": "cmd+m",
+    "command": "workbench.action.toggleMaximizedPanel"
+  },
+  {
+    "args": "<CS-l>",
+    "command": "vscode-neovim.send",
+    "key": "cmd+shift+l",
+    "when": "editorFocus && neovim.init"
+  }
+]
