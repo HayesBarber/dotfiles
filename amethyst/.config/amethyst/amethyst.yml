@@ -16,3 +16,7 @@ throw-space-right:
 select-fullscreen-layout:
   mod: mod1
   key: ;
+
+toggle-float:
+  mod: mod1
+  key: b
