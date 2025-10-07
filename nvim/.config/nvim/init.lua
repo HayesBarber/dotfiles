@@ -29,22 +29,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   spec = {
-    {
-      'vscode-neovim/vscode-multi-cursor.nvim',
-      event = 'VeryLazy',
-      cond = function()
-        return vim.g.vscode
-      end,
-      opts = {},
-      config = function()
-        local cursors = require('vscode-multi-cursor')
-
-        vim.keymap.set('n', '<cs-l>', function()
-          cursors.selectHighlights()
-        end)
-      end
-    },
-    { 'folke/flash.nvim', },
+    { import = "plugins" },
   },
   install = {},
   checker = { enabled = true },
