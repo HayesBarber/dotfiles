@@ -96,15 +96,16 @@ require("lazy").setup({
         return vim.g.vscode
       end,
       opts = {},
+      config = function()
+        local cursors = require('vscode-multi-cursor')
+
+        vim.keymap.set('n', '<cs-l>', function()
+          cursors.selectHighlights()
+        end)
+      end
     },
     { 'folke/flash.nvim', },
   },
   install = {},
   checker = { enabled = true },
 })
-
-local cursors = require('vscode-multi-cursor')
-
-vim.keymap.set('n', '<cs-l>', function()
-  cursors.selectHighlights()
-end)
