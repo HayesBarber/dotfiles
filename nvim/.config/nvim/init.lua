@@ -12,7 +12,7 @@ if vim.g.vscode then
   vim.keymap.set('n', '<leader>e', function()
     vscode.action('workbench.view.explorer')
   end, { desc = 'Focus VSCode Explorer' })
-  
+
   vim.keymap.set('n', '<leader>j', function()
     vscode.action('workbench.action.previousEditor')
   end, { desc = 'Previous tab' })
@@ -20,7 +20,7 @@ if vim.g.vscode then
   vim.keymap.set('n', '<leader>k', function()
     vscode.action('workbench.action.nextEditor')
   end, { desc = 'Next tab' })
-  
+
   vim.keymap.set('n', '<leader>]', function()
     vscode.action('workbench.action.moveEditorToNextGroup')
   end, { desc = 'Move editor to next group' })
@@ -44,7 +44,7 @@ if vim.g.vscode then
   vim.keymap.set('n', '<leader>gd', function()
     vscode.action('git.viewChanges')
   end, { desc = 'Git - View Changes' })
-  
+
   vim.keymap.set('n', 'n', function()
     vscode.action('workbench.action.increaseViewSize')
   end, { desc = 'Increase View Size' })
