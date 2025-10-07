@@ -7,6 +7,7 @@ return {
         opts = {},
         config = function()
             local cursors = require('vscode-multi-cursor')
+            cursors.setup({})
             vim.keymap.set('n', '<cs-l>', function()
                 cursors.selectHighlights()
             end)
