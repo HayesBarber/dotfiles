@@ -4,6 +4,10 @@
     "command": "workbench.action.toggleMaximizedPanel"
   },
   {
+    "key": "ctrl+escape",
+    "command": "workbench.action.focusActiveEditorGroup"
+  },
+  {
     "args": "<CS-l>",
     "command": "vscode-neovim.send",
     "key": "cmd+shift+l",
