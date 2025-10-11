@@ -12,5 +12,10 @@
     "command": "vscode-neovim.send",
     "key": "cmd+shift+l",
     "when": "editorFocus && neovim.init"
+  },
+  {
+    "key": "c",
+    "command": "workbench.files.action.collapseExplorerFolders",
+    "when": "filesExplorerFocus && !inputFocus"
   }
 ]
