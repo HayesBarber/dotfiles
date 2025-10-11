@@ -20,3 +20,7 @@ select-fullscreen-layout:
 toggle-float:
   mod: mod1
   key: b
+
+relaunch-amethyst:
+  mod: mod1
+  key: r
