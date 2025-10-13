@@ -17,5 +17,9 @@
     "key": "c",
     "command": "workbench.files.action.collapseExplorerFolders",
     "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "cmd+b",
+    "command": "workbench.files.action.focusFilesExplorer"
   }
 ]

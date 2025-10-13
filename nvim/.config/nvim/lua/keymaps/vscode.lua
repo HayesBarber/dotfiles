@@ -2,7 +2,6 @@ local vscode = require('vscode')
 
 local map = vim.keymap.set
 
-map('n', '<leader>e', function() vscode.action('workbench.view.explorer') end)
 map('n', '<leader>j', function() vscode.action('workbench.action.previousEditor') end)
 map('n', '<leader>k', function() vscode.action('workbench.action.nextEditor') end)
 map('n', '<leader>]', function() vscode.action('workbench.action.moveEditorToNextGroup') end)
