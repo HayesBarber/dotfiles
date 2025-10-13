@@ -19,7 +19,7 @@
     "when": "filesExplorerFocus && !inputFocus"
   },
   {
-    "key": "cmd+b",
+    "key": "cmd+e",
     "command": "workbench.files.action.focusFilesExplorer"
   }
 ]
