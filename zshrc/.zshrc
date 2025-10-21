@@ -159,7 +159,9 @@ revert_to_commit() {
   echo "Done."
 }
 
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if command -v brew > /dev/null 2>&1; then
+  source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
 
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
