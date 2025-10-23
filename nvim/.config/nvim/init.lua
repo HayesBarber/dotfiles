@@ -5,6 +5,8 @@ vim.o.relativenumber = true
 
 vim.cmd('nmap <leader>w :w<cr>')
 vim.cmd('nmap <leader>q :q<cr>')
+vim.keymap.set('v', '>', '>gv')
+vim.keymap.set('v', '<', '<gv')
 
 if vim.g.vscode then
   require('keymaps.vscode')
