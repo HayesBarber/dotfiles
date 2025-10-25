@@ -2,8 +2,8 @@ mod1:
   - option
 
 cycle-layout:
-  mod: <NONE>
-  key: <NONE>
+  mod: mod1
+  key: c
 
 throw-space-left:
   mod: mod1
