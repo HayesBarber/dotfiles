@@ -66,6 +66,10 @@ pr() {
   fi
 }
 
+merge() {
+  gh pr merge --admin --squash --delete-branch --body ""
+}
+
 github() {
   local remote=$(git remote get-url origin 2>/dev/null)
 
