@@ -66,10 +66,6 @@ pr() {
   fi
 }
 
-merge() {
-  gh pr merge --admin --squash --delete-branch --body ""
-}
-
 github() {
   local remote=$(git remote get-url origin 2>/dev/null)
 
@@ -161,6 +157,84 @@ revert_to_commit() {
   git reset || return 1
 
   echo "Done."
+}
+
+release() {
+  if [[ $# -ne 1 ]]; then
+    echo "Usage: release --major|--minor|--patch"
+    return 1
+  fi
+
+  local bump_type=""
+  case "$1" in
+    --major)
+      bump_type="major"
+      ;;
+    --minor)
+      bump_type="minor"
+      ;;
+    --patch)
+      bump_type="patch"
+      ;;
+    *)
+      echo "Usage: release --major|--minor|--patch"
+      return 1
+      ;;
+  esac
+  
+  git fetch
+
+  local latest_tag
+  latest_tag=$(git describe --tags --abbrev=0 2>/dev/null)
+  if [[ -z "$latest_tag" ]]; then
+    latest_tag="v0.0.0"
+  fi
+
+  # Extract version numbers
+  IFS='.' read -r major minor patch <<< "${latest_tag#v}"
+
+  case "$bump_type" in
+    major)
+      major=$((major + 1))
+      minor=0
+      patch=0
+      ;;
+    minor)
+      minor=$((minor + 1))
+      patch=0
+      ;;
+    patch)
+      patch=$((patch + 1))
+      ;;
+  esac
+
+  new_tag="v${major}.${minor}.${patch}"
+
+  gh release create "$new_tag" --generate-notes
+  echo "Released $new_tag"
+  github
+}
+
+merge() {
+  local flag=""
+  # Parse arguments for --major, --minor, or --patch
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      --major|--minor|--patch)
+        flag="$1"
+        shift
+        ;;
+      *)
+        echo "Usage: merge [--major|--minor|--patch]"
+        return 1
+        ;;
+    esac
+  done
+  gh pr merge --admin --squash --delete-branch --body ""
+  # If a flag was passed, call release with it
+  if [[ -n "$flag" ]]; then
+    release "$flag"
+  fi
 }
 
 if command -v brew > /dev/null 2>&1; then
