@@ -66,10 +66,6 @@ pr() {
   fi
 }
 
-merge() {
-  gh pr merge --admin --squash --delete-branch --body ""
-}
-
 github() {
   local remote=$(git remote get-url origin 2>/dev/null)
 
@@ -217,6 +213,28 @@ release() {
   gh release create "$new_tag" --generate-notes
   echo "Released $new_tag"
   github
+}
+
+merge() {
+  local flag=""
+  # Parse arguments for --major, --minor, or --patch
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      --major|--minor|--patch)
+        flag="$1"
+        shift
+        ;;
+      *)
+        echo "Usage: merge [--major|--minor|--patch]"
+        return 1
+        ;;
+    esac
+  done
+  gh pr merge --admin --squash --delete-branch --body ""
+  # If a flag was passed, call release with it
+  if [[ -n "$flag" ]]; then
+    release "$flag"
+  fi
 }
 
 if command -v brew > /dev/null 2>&1; then
