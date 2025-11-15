@@ -212,7 +212,6 @@ release() {
 
   gh release create "$new_tag" --generate-notes
   echo "Released $new_tag"
-  github
 }
 
 merge() {
