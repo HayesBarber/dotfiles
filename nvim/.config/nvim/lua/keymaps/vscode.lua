@@ -14,7 +14,7 @@ map('n', '<leader>n', function() vscode.action('workbench.action.increaseViewSiz
 map('n', '<leader>m', function() vscode.action('workbench.action.decreaseViewSize') end)
 map('n', '<leader>cp', function() vscode.action('copyFilePath') end)
 map('n', '<leader>cr', function() vscode.action('copyRelativeFilePath') end)
-map('n', '<leader>rs', function() vscode.action('editor.action.rename') end)
+map('n', '<leader>r', function() vscode.action('editor.action.rename') end)
 map('n', '<leader>ca', function() vscode.action('editor.action.quickFix') end)
 map('n', '<leader>-', function() vscode.action('workbench.action.navigateBack') end)
 map('n', '<leader>=', function() vscode.action('workbench.action.navigateForward') end)
