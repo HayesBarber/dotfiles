@@ -7,10 +7,18 @@ return {
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
         local builtin = require('telescope.builtin')
+
         vim.keymap.set('n', '<leader>f', function()
             builtin.find_files({
                 hidden = true,
                 file_ignore_patterns = { ".git/" },
+            })
+        end)
+
+        vim.keymap.set('n', '<leader>b', function()
+            builtin.buffers({
+                sort_lastused = true,
+                ignore_current_buffer = true,
             })
         end)
     end,

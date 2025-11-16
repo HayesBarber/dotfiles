@@ -7,6 +7,8 @@ vim.cmd('nmap <leader>w :w<cr>')
 vim.cmd('nmap <leader>q :q<cr>')
 vim.keymap.set('v', '>', '>gv')
 vim.keymap.set('v', '<', '<gv')
+vim.keymap.set('n', '<leader>j', ':bnext<CR>', { desc = "Next buffer" })
+vim.keymap.set('n', '<leader>k', ':bprevious<CR>', { desc = "Previous buffer" })
 
 if vim.g.vscode then
   require('keymaps.vscode')
