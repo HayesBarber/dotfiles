@@ -9,7 +9,10 @@ return {
         config = function()
             local builtin = require('telescope.builtin')
             vim.keymap.set('n', '<leader>f', function()
-                builtin.find_files({ hidden = true })
+                builtin.find_files({
+                    hidden = true,
+                    file_ignore_patterns = { ".git/" },
+                })
             end)
         end,
     },
