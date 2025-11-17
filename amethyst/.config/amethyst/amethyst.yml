@@ -3,24 +3,21 @@ mod1:
 
 cycle-layout:
   mod: mod1
-  key: c
+  key: "."
 
 throw-space-left:
   mod: mod1
-  key: "["
+  key: "m"
 
 throw-space-right:
   mod: mod1
-  key: "]"
+  key: ","
 
 select-fullscreen-layout:
   mod: mod1
-  key: ;
-
-toggle-float:
-  mod: mod1
-  key: b
+  key: "'"
 
 relaunch-amethyst:
   mod: mod1
-  key: r
+  key: "n"
+
