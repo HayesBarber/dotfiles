@@ -76,10 +76,10 @@ github() {
 
   local base_domain repo_path
 
-  if [[ "$remote" =~ ^git@([^:]+):(.+)\.git$ ]]; then
+  if [[ "$remote" =~ ^git@([^:]+):(.+?)(\.git)?$ ]]; then
     base_domain="${match[1]}"
     repo_path="${match[2]}"
-  elif [[ "$remote" =~ ^https://([^/]+)/(.+)\.git$ ]]; then
+  elif [[ "$remote" =~ ^https://([^/]+)/(.+?)(\.git)?$ ]]; then
     base_domain="${match[1]}"
     repo_path="${match[2]}"
   else
@@ -102,10 +102,10 @@ compare() {
 
   local base_domain repo_path
 
-  if [[ "$remote" =~ ^git@([^:]+):(.+)\.git$ ]]; then
+  if [[ "$remote" =~ ^git@([^:]+):(.+?)(\.git)?$ ]]; then
     base_domain="${match[1]}"
     repo_path="${match[2]}"
-  elif [[ "$remote" =~ ^https://([^/]+)/(.+)\.git$ ]]; then
+  elif [[ "$remote" =~ ^https://([^/]+)/(.+?)(\.git)?$ ]]; then
     base_domain="${match[1]}"
     repo_path="${match[2]}"
   else
