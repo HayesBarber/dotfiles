@@ -10,6 +10,7 @@ vim.keymap.set('v', '>', '>gv')
 vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('n', '<leader>j', ':bnext<CR>', { desc = "Next buffer" })
 vim.keymap.set('n', '<leader>k', ':bprevious<CR>', { desc = "Previous buffer" })
+vim.keymap.set('n', '<leader>c', ':bd<CR>', { desc = "Close buffer" })
 vim.diagnostic.config({
   signs = true,
   virtual_lines = true,
