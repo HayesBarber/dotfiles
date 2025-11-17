@@ -9,5 +9,6 @@ return {
             highlight = { enable = true },
             indent = { enable = true },
         })
+	vim.treesitter.language.register("bash", "zsh")
     end,
 }
