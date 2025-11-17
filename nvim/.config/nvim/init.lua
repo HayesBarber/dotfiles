@@ -12,7 +12,7 @@ vim.keymap.set('n', '<leader>j', ':bnext<CR>', { desc = "Next buffer" })
 vim.keymap.set('n', '<leader>k', ':bprevious<CR>', { desc = "Previous buffer" })
 vim.diagnostic.config({
   signs = true,
-  virtual_text = true,
+  virtual_lines = true,
   update_in_insert = false,
 })
 
