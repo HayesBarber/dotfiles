@@ -15,7 +15,7 @@ return {
             })
         end)
 
-        vim.keymap.set('n', '<leader>g', function()
+        vim.keymap.set('n', '<leader>rg', function()
             builtin.live_grep({
                 file_ignore_patterns = { ".git/" },
                 additional_args = function()
