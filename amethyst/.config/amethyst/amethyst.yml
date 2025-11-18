@@ -15,9 +15,8 @@ throw-space-right:
 
 select-fullscreen-layout:
   mod: mod1
-  key: "'"
+  key: ";"
 
 relaunch-amethyst:
   mod: mod1
   key: "n"
-
