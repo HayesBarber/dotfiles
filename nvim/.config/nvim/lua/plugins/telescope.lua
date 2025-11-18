@@ -15,6 +15,15 @@ return {
             })
         end)
 
+        vim.keymap.set('n', '<leader>g', function()
+            builtin.live_grep({
+                file_ignore_patterns = { ".git/" },
+                additional_args = function()
+                    return { "--hidden" }
+                end,
+            })
+        end)
+
         vim.keymap.set('n', '<leader>b', function()
             builtin.buffers({
                 sort_lastused = true,
@@ -23,3 +32,4 @@ return {
         end)
     end,
 }
+
