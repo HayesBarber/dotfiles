@@ -1,26 +1,5 @@
-vim.g.mapleader = ' '
-
-vim.o.number = true
-vim.o.relativenumber = true
-vim.opt.clipboard = "unnamedplus"
-vim.opt.expandtab = true
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.o.termguicolors = true
-
-vim.cmd('nmap <leader>w :w<cr>')
-vim.cmd('nmap <leader>q :q<cr>')
-vim.keymap.set('v', '>', '>gv')
-vim.keymap.set('v', '<', '<gv')
-vim.keymap.set('n', '<leader>j', ':bnext<CR>', { desc = "Next buffer" })
-vim.keymap.set('n', '<leader>k', ':bprevious<CR>', { desc = "Previous buffer" })
-vim.keymap.set('n', '<leader>c', ':bd<CR>', { desc = "Close buffer" })
-vim.keymap.set('n', '<leader>a', ':%bd<CR>', { desc = "Close all buffers" })
-vim.diagnostic.config({
-  signs = true,
-  virtual_lines = true,
-  update_in_insert = false,
-})
+require('options')
+require('keymaps.global')
 
 if vim.g.vscode then
   require('keymaps.vscode')
