@@ -1,5 +1,6 @@
 vim.cmd('nmap <leader>w :w<cr>')
-vim.cmd('nmap <leader>q :q<cr>')
+vim.cmd('nmap <leader>Q :q<cr>')
+vim.keymap.set('n', '<leader>q', ':bd<CR>', { desc = "Close buffer" })
 vim.keymap.set('v', '>', '>gv')
 vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('n', '<leader>j', ':bnext<CR>', { desc = "Next buffer" })
