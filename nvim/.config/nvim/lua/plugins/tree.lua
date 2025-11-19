@@ -8,16 +8,27 @@ return {
     dependencies = {
         "nvim-tree/nvim-web-devicons",
     },
-    config = function()
-        require("nvim-tree").setup({
-            actions = {
-                open_file = {
-                    quit_on_open = true,
-                },
+    opts = {
+        actions = {
+            open_file = {
+                quit_on_open = true,
             },
-        })
-        vim.keymap.set('n', '<leader>e', function()
-            require("nvim-tree.api").tree.toggle({ focus = true })
-        end)
-    end,
+        },
+        update_focused_file = {
+            enable = true,
+        },
+        view = {
+            adaptive_size = true,
+        },
+    },
+    keys = {
+        {
+            "<leader>e",
+            function()
+                require("nvim-tree.api").tree.toggle({ focus = true })
+            end,
+            desc = "Toggle NvimTree",
+        },
+    },
 }
+
