@@ -3,12 +3,15 @@ return {
     branch = "master",
     lazy = false,
     build = ":TSUpdate",
-    config = function()
-        require('nvim-treesitter.configs').setup({
-            ensure_installed = { "python", "json", "bash", },
-            highlight = { enable = true },
-            indent = { enable = true },
-        })
-	vim.treesitter.language.register("bash", "zsh")
+    opts = {
+        ensure_installed = { "python", "json", "bash" },
+        auto_intall = true,
+        highlight = { enable = true },
+        indent = { enable = true },
+    },
+    config = function(_, opts)
+        require("nvim-treesitter.configs").setup(opts)
+        vim.treesitter.language.register("bash", "zsh")
     end,
 }
+
