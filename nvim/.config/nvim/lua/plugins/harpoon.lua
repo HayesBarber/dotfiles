@@ -16,11 +16,11 @@ return {
             harpoon:list():clear()
         end)
 
-        vim.keymap.set("n", "<leader>y", function() harpoon:list():select(1) end)
-        vim.keymap.set("n", "<leader>u", function() harpoon:list():select(2) end)
-        vim.keymap.set("n", "<leader>i", function() harpoon:list():select(3) end)
-        vim.keymap.set("n", "<leader>o", function() harpoon:list():select(4) end)
-        vim.keymap.set("n", "<leader>p", function() harpoon:list():select(5) end)
+        for i = 1, 5 do
+            vim.keymap.set("n", "<leader>" .. i, function()
+                harpoon:list():select(i)
+            end)
+        end
 
         -- basic telescope configuration
         local conf = require("telescope.config").values
