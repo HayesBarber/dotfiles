@@ -1,6 +1,9 @@
 return {
 	"nvimdev/dashboard-nvim",
 	event = "VimEnter",
+	cond = function()
+		return not vim.g.vscode
+	end,
 	config = function()
 		require("dashboard").setup({
 			theme = "hyper",
