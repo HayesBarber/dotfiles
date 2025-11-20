@@ -5,7 +5,7 @@ return {
 		return not vim.g.vscode
 	end,
 	opts = {
-		options = { theme = "powerline" },
+		options = { theme = "powerline", disabled_filetypes = { "NvimTree" } },
 		sections = {
 			lualine_a = { "mode" },
 			lualine_b = { "branch", "diff" },
