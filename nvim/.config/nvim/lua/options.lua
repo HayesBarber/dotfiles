@@ -1,4 +1,4 @@
-vim.g.mapleader = ' '
+vim.g.mapleader = " "
 
 vim.o.number = true
 vim.o.relativenumber = true
@@ -8,9 +8,8 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.o.termguicolors = true
 vim.diagnostic.config({
-  signs = true,
-  virtual_lines = true,
-  update_in_insert = false,
+	signs = true,
+	virtual_lines = true,
+	update_in_insert = false,
 })
-vim.cmd('colorscheme slate')
-
+vim.cmd("colorscheme slate")
