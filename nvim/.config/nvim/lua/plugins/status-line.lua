@@ -4,5 +4,5 @@ return {
 	cond = function()
 		return not vim.g.vscode
 	end,
-	opts = {},
+	opts = { options = { theme = "powerline" } },
 }
