@@ -12,12 +12,17 @@ return {
 					{ desc = "Update", action = "Lazy update", key = "u" },
 					{
 						desc = "Files",
-						action = "Telescope find_files",
+						action = function()
+							require("telescope.builtin").find_files({
+								hidden = true,
+								file_ignore_patterns = { ".git/" },
+							})
+						end,
 						key = "f",
 					},
 				},
 			},
 		})
 	end,
-	dependencies = { { "nvim-tree/nvim-web-devicons" } },
+	dependencies = { { "nvim-tree/nvim-web-devicons", "nvim-telescope/telescope.nvim" } },
 }
