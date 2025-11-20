@@ -12,7 +12,7 @@ return {
 			lualine_c = {
 				"filename",
 				"filesize",
-				{ require("gitblame").get_current_blame_text, cond = require("gitblame").is_blame_text_available },
+				require("gitblame").get_current_blame_text,
 			},
 			lualine_x = { "encoding", "progress", "filetype" },
 			lualine_y = { "location" },
