@@ -37,6 +37,9 @@ function M.setup()
 	vim.api.nvim_create_user_command("GitBranch", function()
 		require("custom.commands.git-branches").pick_branch()
 	end, {})
+	vim.keymap.set("n", "<leader>gb", function()
+		vim.cmd("GitBranch")
+	end)
 end
 
 return M
