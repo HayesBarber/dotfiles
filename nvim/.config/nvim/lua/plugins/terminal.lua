@@ -6,7 +6,7 @@ return {
 	end,
 	opts = {
 		direction = "vertical",
-		size = vim.o.columns * 0.4,
+		size = vim.o.columns * 0.5,
 		open_mapping = [[<C-j>]],
 	},
 }
