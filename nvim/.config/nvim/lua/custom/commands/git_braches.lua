@@ -24,7 +24,7 @@ function M.pick_branch()
 					if branch:sub(1, 2) == "* " then
 						branch = branch:sub(3)
 					end
-					branch = branch:gsub("%s+", "")
+					branch = vim.trim(branch)
 					print(branch)
 				end)
 				return true
