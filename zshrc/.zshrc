@@ -34,6 +34,18 @@ nb() {
     git push -u origin "$1"
 }
 
+gb() {
+  local branch
+  branch=$(git branch -a | fzf --prompt="Git Branches> " --height 40% --layout reverse --border)
+
+  if [[ -n $branch ]]; then
+    branch=$(echo "${branch}" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
+    branch="${branch#\* }"
+    branch="${branch#remotes/origin/}"
+    git checkout "$branch"
+  fi
+}
+
 pr() {
   local submit=false
   local title=$(current_branch)
