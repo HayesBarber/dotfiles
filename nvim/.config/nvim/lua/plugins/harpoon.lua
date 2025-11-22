@@ -9,10 +9,10 @@ return {
 		local harpoon = require("harpoon")
 		harpoon:setup({})
 
-		vim.keymap.set("n", "<leader>H", function()
+		vim.keymap.set("n", "<C-h>", function()
 			harpoon:list():add()
 		end)
-		vim.keymap.set("n", "<C-h>", function()
+		vim.keymap.set("n", "<C-S-h>", function()
 			harpoon:list():clear()
 		end)
 
