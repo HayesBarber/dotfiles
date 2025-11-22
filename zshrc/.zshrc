@@ -34,6 +34,15 @@ nb() {
     git push -u origin "$1"
 }
 
+gb() {
+  local branch
+  branch=$(git branch -a | fzf --prompt="Git Branches> " --height 40% --layout reverse --border)
+
+  if [[ -n $branch ]]; then
+    git checkout "$branch"
+  fi
+}
+
 pr() {
   local submit=false
   local title=$(current_branch)
