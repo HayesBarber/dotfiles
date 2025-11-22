@@ -29,6 +29,11 @@ acm() {
   git push
 }
 
+nb() {
+    git checkout -b "$1"
+    git push -u origin "$1"
+}
+
 pr() {
   local submit=false
   local title=$(current_branch)
