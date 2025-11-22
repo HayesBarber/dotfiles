@@ -24,11 +24,11 @@ function M.pick_branch()
 					if branch:sub(1, 2) == "* " then
 						branch = branch:sub(3)
 					end
+					branch = vim.trim(branch)
 					local prefix = "remotes/origin/"
 					if branch:sub(1, #prefix) == prefix then
 						branch = branch:sub(#prefix + 1)
 					end
-					branch = vim.trim(branch)
 					vim.cmd("!git checkout " .. branch)
 				end)
 				return true
