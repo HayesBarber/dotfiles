@@ -18,10 +18,13 @@ function M.pick_branch()
 					actions.close(prompt_bufnr)
 					local entry = action_state.get_selected_entry()
 					if not entry or not entry.value then
-						print("none")
 						return
 					end
 					local branch = entry.value
+					if branch:sub(1, 2) == "* " then
+						branch = branch:sub(3)
+					end
+					branch = branch:gsub("%s+", "")
 					print(branch)
 				end)
 				return true
