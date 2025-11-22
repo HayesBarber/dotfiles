@@ -42,8 +42,7 @@ gb() {
     branch=$(echo "${branch}" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
     branch="${branch#\* }"
     branch="${branch#remotes/origin/}"
-    #git checkout "$branch"
-    echo "$branch"
+    git checkout "$branch"
   fi
 }
 
