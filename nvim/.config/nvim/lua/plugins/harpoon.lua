@@ -22,7 +22,7 @@ return {
 			end)
 		end
 
-		vim.keymap.set("n", "<C-j>", function()
+		vim.keymap.set("n", "<leader>h", function()
 			harpoon.ui:toggle_quick_menu(harpoon:list())
 		end)
 	end,
