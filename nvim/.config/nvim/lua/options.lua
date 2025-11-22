@@ -9,7 +9,7 @@ vim.opt.shiftwidth = 4
 vim.o.termguicolors = true
 vim.diagnostic.config({
 	signs = true,
-	virtual_lines = true,
+	virtual_text = true,
 	update_in_insert = false,
 })
 vim.cmd("colorscheme slate")

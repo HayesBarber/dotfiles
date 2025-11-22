@@ -1,29 +1,33 @@
 local M = {}
 
 function M.pick_branch()
-	local telescope = require("telescope.builtin")
+	local pickers = require("telescope.pickers")
+	local finders = require("telescope.finders")
+	local conf = require("telescope.config").values
 	local actions = require("telescope.actions")
 	local action_state = require("telescope.actions.state")
 
-	telescope.git_branches({
-		attach_mappings = function(prompt_bufnr, map)
-			map("i", "<CR>", function()
-				local entry = action_state.get_selected_entry()
-				local branch = entry.value
-
-				actions.close(prompt_bufnr)
-
-				local exists = vim.fn.systemlist("git branch --list " .. branch)
-				if #exists > 0 then
-					vim.cmd("!git checkout " .. branch)
-				else
-					vim.cmd("!git checkout -b " .. branch .. " origin/" .. branch)
-				end
-			end)
-
-			return true
-		end,
-	})
+	pickers
+		.new({}, {
+			prompt_title = "Git Branches",
+			finder = finders.new_oneshot_job({ "git", "branch" }, {}),
+			sorter = conf.generic_sorter({}),
+			initial_mode = "normal",
+			attach_mappings = function(prompt_bufnr, map)
+				actions.select_default:replace(function()
+					actions.close(prompt_bufnr)
+					local entry = action_state.get_selected_entry()
+					if not entry or not entry.value then
+						print("none")
+						return
+					end
+					local branch = entry.value
+					print(branch)
+				end)
+				return true
+			end,
+		})
+		:find()
 end
 
 function M.setup()
