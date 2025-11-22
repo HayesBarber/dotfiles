@@ -25,7 +25,7 @@ function M.pick_branch()
 						branch = branch:sub(3)
 					end
 					branch = vim.trim(branch)
-					print(branch)
+					vim.cmd("!git checkout " .. branch)
 				end)
 				return true
 			end,
