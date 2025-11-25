@@ -4,11 +4,12 @@ return {
         return not vim.g.vscode
     end,
     dependencies = {
-        { 'kkharji/sqlite.lua',           module = 'sqlite' },
-        { 'nvim-telescope/telescope.nvim' },
+        { "kkharji/sqlite.lua",           module = "sqlite" },
+        { "nvim-telescope/telescope.nvim" },
     },
     config = function()
-        require('neoclip').setup({
+        require("neoclip").setup({
+            initial_mode = "normal",
             enable_persistent_history = true,
         })
     end,
