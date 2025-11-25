@@ -15,5 +15,9 @@ return {
     end,
     keys = {
         { "<leader>y", "<cmd>Telescope neoclip<cr>" },
+        {
+            "<leader>nc",
+            function() require("neoclip").clear_history() end,
+        },
     },
 }
