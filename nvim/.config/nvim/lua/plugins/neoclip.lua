@@ -10,4 +10,7 @@ return {
     config = function()
         require('neoclip').setup()
     end,
+    keys = {
+        { "<leader>y", "<cmd>Telescope neoclip<cr>" },
+    },
 }
