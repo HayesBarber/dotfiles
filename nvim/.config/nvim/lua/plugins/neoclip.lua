@@ -8,7 +8,9 @@ return {
         { 'nvim-telescope/telescope.nvim' },
     },
     config = function()
-        require('neoclip').setup()
+        require('neoclip').setup({
+            enable_persistent_history = true,
+        })
     end,
     keys = {
         { "<leader>y", "<cmd>Telescope neoclip<cr>" },
