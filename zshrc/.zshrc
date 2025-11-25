@@ -253,9 +253,14 @@ merge() {
   fi
 }
 
-if command -v brew > /dev/null 2>&1; then
-  source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-  source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
+try_source() {
+  [ -f "$1" ] && source "$1"
+}
+
+try_source "$(brew --prefix 2>/dev/null)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+try_source "/usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+
+try_source "$(brew --prefix 2>/dev/null)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+try_source "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
