@@ -8,7 +8,7 @@ return {
         options = { theme = "powerline", disabled_filetypes = { "NvimTree", "toggleterm" } },
         sections = {
             lualine_a = { "mode" },
-            lualine_b = { "branch", "diff" },
+            lualine_b = { "branch", "diff", "diagnostics" },
             lualine_c = {
                 require("gitblame").get_current_blame_text,
             },
