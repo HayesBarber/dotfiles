@@ -16,3 +16,8 @@ vim.keymap.set("n", "<leader>l", "<C-w>l")
 vim.keymap.set("n", "<leader>c", "<C-w>q")
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, { silent = true })
 vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { silent = true })
+local function open_float_focus()
+    vim.diagnostic.open_float(nil, { scope = "line" })
+    vim.diagnostic.open_float(nil, { scope = "line", focus = true })
+end
+vim.keymap.set("n", "df", open_float_focus, { silent = true })
