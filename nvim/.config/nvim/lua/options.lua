@@ -8,9 +8,8 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.o.termguicolors = true
 vim.diagnostic.config({
-	signs = true,
-	virtual_text = true,
-	update_in_insert = false,
+    signs = true,
+    virtual_text = true,
+    update_in_insert = false,
 })
-vim.cmd("colorscheme slate")
 vim.g.loaded_matchparen = 1
