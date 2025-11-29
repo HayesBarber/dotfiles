@@ -17,19 +17,21 @@ return {
             lualine_z = { "lsp_status" },
         },
         tabline = {
-            lualine_a = {},
-            lualine_b = {
-                {
-                    'filename',
-                    file_status = true,
-                    path = 1,
-                }
+            lualine_a = {
+                "buffers"
             },
+            lualine_b = {},
             lualine_c = {},
             lualine_x = {
                 "filesize",
             },
-            lualine_y = {},
+            lualine_y = {
+                {
+                    "filename",
+                    file_status = true,
+                    path = 1,
+                }
+            },
             lualine_z = {},
         }
     },
