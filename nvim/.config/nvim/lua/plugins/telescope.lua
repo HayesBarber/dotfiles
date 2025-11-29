@@ -36,5 +36,11 @@ return {
                 initial_mode = "normal",
             })
         end)
+
+        vim.keymap.set("n", "<leader>rr", function()
+            builtin.lsp_references({
+                initial_mode = "normal",
+            })
+        end)
     end,
 }
