@@ -28,6 +28,7 @@ return {
             builtin.buffers({
                 sort_lastused = true,
                 ignore_current_buffer = true,
+                initial_mode = "normal",
             })
         end)
 
