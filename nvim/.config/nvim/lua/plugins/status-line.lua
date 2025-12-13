@@ -1,3 +1,13 @@
+local function git_changed_files()
+	if vim.fn.system("git rev-parse --is-inside-work-tree 2>/dev/null"):match("true") == nil then
+		return ""
+	end
+
+	local output = vim.fn.systemlist("git status --porcelain")
+	local count = #output
+	return ("Δ " .. count)
+end
+
 return {
 	"nvim-lualine/lualine.nvim",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -8,7 +18,7 @@ return {
 		options = { theme = "powerline", disabled_filetypes = { "NvimTree", "toggleterm" } },
 		sections = {
 			lualine_a = { "mode" },
-			lualine_b = { "branch", "diff", "diagnostics" },
+			lualine_b = { "branch", git_changed_files, "diagnostics" },
 			lualine_c = {
 				require("gitblame").get_current_blame_text,
 			},
