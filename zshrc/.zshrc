@@ -3,7 +3,6 @@ eval "$(starship init zsh)"
 alias cl="clear"
 alias gcm="git checkout main || git checkout master"
 alias gl="git pull"
-alias gr="git restore ."
 alias gs="git status"
 alias gd="git diff"
 alias current_branch="git rev-parse --abbrev-ref HEAD"
@@ -44,6 +43,11 @@ gb() {
     branch="${branch#remotes/origin/}"
     git checkout "$branch"
   fi
+}
+
+restore() {
+    git restore .
+    git clean -fd
 }
 
 pr() {
