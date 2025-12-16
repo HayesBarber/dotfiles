@@ -6,7 +6,7 @@ local cache = {
 local TTL = 10
 
 local function git_delta()
-	local now = vim.loop.now() / 1000
+	local now = vim.uv.now() / 1000
 
 	if now - cache.last < TTL then
 		return cache.value
