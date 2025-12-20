@@ -1,5 +1,7 @@
 # vi: ft=conf :
 
+window-decoration = none
+
 # normal colors
 palette = 0=#1F1F1F
 palette = 1=#F44747
