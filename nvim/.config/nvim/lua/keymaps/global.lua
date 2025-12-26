@@ -33,3 +33,9 @@ vim.keymap.set("n", "<leader>cp", function()
     vim.fn.setreg("+", path)
     print("Copied absolute path: " .. path)
 end, { desc = "Copy absolute file path" })
+vim.keymap.set("n", "<leader>y", function()
+    vim.cmd("normal! mzggyG`z")
+    print("buffer yanked")
+end, {
+    desc = "Yank entire buffer, keep cursor",
+})
