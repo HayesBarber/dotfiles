@@ -14,6 +14,9 @@ function M.get_non_tree_buffers()
 end
 
 function M.setup()
+    if vim.g.vscode then
+        return
+    end
     vim.api.nvim_create_user_command("BufClose", function()
         local non_tree_bufs = M.get_non_tree_buffers()
 
