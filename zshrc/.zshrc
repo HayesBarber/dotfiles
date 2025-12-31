@@ -10,6 +10,10 @@ alias rtc="revert_to_commit"
 alias tree="tree -C -F --dirsfirst"
 alias ls="tree -L 1"
 
+millis() {
+  echo "$(date -u +%s%3N)"
+}
+
 format_current_branch() {
   current_branch 2> /dev/null | sed "s/\(.*\)/[\1] /"
 }
