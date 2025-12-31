@@ -11,7 +11,20 @@ alias tree="tree -C -F --dirsfirst"
 alias ls="tree -L 1"
 
 millis() {
-  echo "$(date -u +%s%3N)"
+    python3 -c 'import time; print(int(time.time() * 1000))'
+}
+
+millis_to_et() {
+    local input
+    if [[ -p /dev/stdin ]]; then
+        read input
+    elif [[ -n "$1" ]]; then
+        input="$1"
+    else
+        echo "Usage: millis_to_et <millis> or echo <millis> | millis_to_et"
+        return 1
+    fi
+    python3 -c "import time; from datetime import datetime; import zoneinfo; dt = datetime.fromtimestamp($input / 1000, tz=zoneinfo.ZoneInfo('America/New_York')); print(dt.strftime('%I:%M: %p'))"
 }
 
 format_current_branch() {
