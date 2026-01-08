@@ -11,7 +11,7 @@ local function update_git_status()
 		return
 	end
 	cache.is_running = true
-	cache.value = "Δ .."
+	cache.value = "Δ ○"
 
 	vim.fn.jobstart("git status --porcelain", {
 		stdout_buffered = true,
