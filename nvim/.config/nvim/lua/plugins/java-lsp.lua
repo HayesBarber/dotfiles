@@ -1,7 +1,7 @@
 return {
 	"nvim-java/nvim-java",
 	cond = function()
-		return false
+		return not vim.g.vscode and _G.LOCAL.enable_java
 	end,
 	config = function()
 		require("java").setup()

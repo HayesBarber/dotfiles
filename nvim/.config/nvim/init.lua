@@ -1,3 +1,10 @@
+local ok, LOCAL = pcall(require, "local")
+if not ok then
+	LOCAL = {}
+end
+
+_G.LOCAL = LOCAL
+
 require("options")
 require("keymaps.global")
 

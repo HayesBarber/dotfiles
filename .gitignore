@@ -1,1 +1,3 @@
 .vscode
+nvim/.config/nvim/lua/local.lua
+
