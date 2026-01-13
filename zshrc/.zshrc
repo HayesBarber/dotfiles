@@ -286,8 +286,3 @@ try_source "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
-## [Completion]
-## Completion scripts setup. Remove the following line to uninstall
-[[ -f /Users/hayesbarber/.dart-cli-completion/zsh-config.zsh ]] && . /Users/hayesbarber/.dart-cli-completion/zsh-config.zsh || true
-## [/Completion]
-
