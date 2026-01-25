@@ -1,11 +1,10 @@
 return {
-	"Mofiqul/vscode.nvim",
+	"rebelot/kanagawa.nvim",
 	priority = 1000,
 	cond = function()
 		return not vim.g.vscode
 	end,
 	config = function()
-		require("vscode").setup({})
-		vim.cmd.colorscheme("vscode")
+		vim.cmd.colorscheme("kanagawa-dragon")
 	end,
 }
