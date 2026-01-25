@@ -2,30 +2,26 @@
 
 window-decoration = none
 
-# normal colors
-palette = 0=#1F1F1F
-palette = 1=#F44747
-palette = 2=#6A9955
-palette = 3=#DCDCAA
-palette = 4=#569CD6
-palette = 5=#C586C0
-palette = 6=#56B6C2
-palette = 7=#D4D4D4
+palette = 0=#0d0c0c
+palette = 1=#c4746e
+palette = 2=#8a9a7b
+palette = 3=#c4b28a
+palette = 4=#8ba4b0
+palette = 5=#a292a3
+palette = 6=#8ea4a2
+palette = 7=#c8c093
+palette = 8=#a6a69c
+palette = 9=#e46876
+palette = 10=#87a987
+palette = 11=#e6c384
+palette = 12=#7fb4ca
+palette = 13=#938aa9
+palette = 14=#7aa89f
+palette = 15=#c5c9c5
 
-# bright colors
-palette = 8=#808080
-palette = 9=#F44747
-palette = 10=#6A9955
-palette = 11=#DCDCAA
-palette = 12=#569CD6
-palette = 13=#C586C0
-palette = 14=#56B6C2
-palette = 15=#D4D4D4
-
-background = #1F1F1F
-foreground = #D4D4D4
-cursor-color = #D4D4D4
-
-selection-background = #264F78
-selection-foreground = #ffffff
+background = 181616
+foreground = c5c9c5
+cursor-color = c8c093
+selection-background = 2d4f67
+selection-foreground = c8c093
 
