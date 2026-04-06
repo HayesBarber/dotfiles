@@ -34,7 +34,7 @@ require("lazy").setup({
 		{ import = "plugins" },
 	},
 	install = {},
-	checker = { enabled = true },
+	checker = { enabled = true, notify = false },
 })
 
 require("custom").setup()
