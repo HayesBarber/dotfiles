@@ -1,7 +1,7 @@
 return {
 	"nvim-java/nvim-java",
 	cond = function()
-		return not vim.g.vscode and _G.LOCAL.enable_java
+		return _G.LOCAL.enable_java
 	end,
 	dependencies = { "MunifTanjim/nui.nvim" },
 	config = function()
