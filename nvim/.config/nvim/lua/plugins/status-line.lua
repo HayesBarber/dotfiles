@@ -5,7 +5,7 @@ return {
 		options = { theme = "powerline", disabled_filetypes = { "NvimTree", "toggleterm" } },
 		sections = {
 			lualine_a = { "mode" },
-			lualine_b = { "branch", require("custom.commands.git-delta"), "diagnostics" },
+			lualine_b = { "branch", "diagnostics" },
 			lualine_c = {
 				require("gitblame").get_current_blame_text,
 			},
