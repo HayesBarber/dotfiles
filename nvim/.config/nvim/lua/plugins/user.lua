@@ -19,18 +19,6 @@ return {
   },
 
   {
-    "akinsho/toggleterm.nvim",
-    opts = function(_, opts)
-      vim.api.nvim_create_autocmd("TermOpen", {
-        pattern = "term://*toggleterm#*",
-        callback = function() vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { buffer = true }) end,
-      })
-
-      return opts
-    end,
-  },
-
-  {
     "folke/flash.nvim",
     event = "VeryLazy",
     opts = {},
