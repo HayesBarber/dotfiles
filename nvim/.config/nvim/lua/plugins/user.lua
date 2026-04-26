@@ -31,4 +31,15 @@ return {
       },
     },
   },
+
+  {
+    "akinsho/toggleterm.nvim",
+    opts = function(_, opts)
+      opts.direction = "horizontal"
+
+      opts.size = function() return math.floor(vim.o.lines * 0.4) end
+
+      return opts
+    end,
+  },
 }
