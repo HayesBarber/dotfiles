@@ -1,10 +1,3 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
--- Customize Treesitter
--- --------------------
--- Treesitter customizations are handled with AstroCore
--- as nvim-treesitter simply provides a download utility for parsers
-
 ---@type LazySpec
 return {
   "AstroNvim/astrocore",
