@@ -1,0 +1,23 @@
+theme = "github-dark"
+diff_view = "side-by-side"
+ignore_whitespace = false
+show_file_list = true
+leader = " "
+wrap = true
+
+comment_types = [
+  { id = "issue", definition = "problems to fix", color = "red" },
+  { id = "suggestion", definition = "possible improvements", color = "#ffa500" },
+  { id = "question", definition = "need clarification", color = "yellow" },
+  { id = "nitpick", definition = "small optional tweaks", color = "#d19a66" },
+  { id = "compliment", definition = "positive feedback", color = "green" },
+]
+
+[export]
+intro = "I reviewed your code and have the following comments. Please address them."
+scope_line = true
+pr_metadata = true
+comments_header = "## Comments"
+remote_comments_header = "## Existing GitHub Comments"
+legend = true
+
