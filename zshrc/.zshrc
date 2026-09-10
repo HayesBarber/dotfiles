@@ -303,24 +303,33 @@ release() {
 }
 
 merge() {
-  local flag=""
-  # Parse arguments for --major, --minor, or --patch
+  local usage="Usage: merge [--major|--minor|--patch] [--pre alpha|beta|rc] | merge --final"
+  local -a release_args=()
+
   while [[ $# -gt 0 ]]; do
     case "$1" in
-      --major|--minor|--patch)
-        flag="$1"
+      --major|--minor|--patch|--final)
+        release_args+=("$1")
         shift
         ;;
+      --pre)
+        if [[ $# -lt 2 ]]; then
+          echo "$usage"
+          return 1
+        fi
+        release_args+=("$1" "$2")
+        shift 2
+        ;;
       *)
-        echo "Usage: merge [--major|--minor|--patch]"
+        echo "$usage"
         return 1
         ;;
     esac
   done
-  gh pr merge --admin --squash --delete-branch --body ""
-  # If a flag was passed, call release with it
-  if [[ -n "$flag" ]]; then
-    release "$flag"
+
+  gh pr merge --admin --squash --delete-branch --body "" || return 1
+  if (( ${#release_args[@]} > 0 )); then
+    release "${release_args[@]}"
   fi
 }
 
