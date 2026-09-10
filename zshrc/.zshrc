@@ -198,57 +198,107 @@ revert_to_commit() {
 }
 
 release() {
-  if [[ $# -ne 1 ]]; then
-    echo "Usage: release --major|--minor|--patch"
+  local usage="Usage: release [--major|--minor|--patch] [--pre alpha|beta|rc] | release --final"
+  local bump_type=""
+  local pre_type=""
+  local finalize=false
+
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      --major|--minor|--patch)
+        if [[ -n "$bump_type" ]]; then
+          echo "$usage"
+          return 1
+        fi
+        bump_type="${1#--}"
+        ;;
+      --pre)
+        shift
+        case "$1" in
+          alpha|beta|rc) pre_type="$1" ;;
+          *) echo "$usage"; return 1 ;;
+        esac
+        ;;
+      --final)
+        finalize=true
+        ;;
+      *)
+        echo "$usage"
+        return 1
+        ;;
+    esac
+    shift
+  done
+
+  if $finalize && [[ -n "$bump_type$pre_type" ]]; then
+    echo "$usage"
+    return 1
+  fi
+  if ! $finalize && [[ -z "$bump_type$pre_type" ]]; then
+    echo "$usage"
     return 1
   fi
 
-  local bump_type=""
-  case "$1" in
-    --major)
-      bump_type="major"
-      ;;
-    --minor)
-      bump_type="minor"
-      ;;
-    --patch)
-      bump_type="patch"
-      ;;
-    *)
-      echo "Usage: release --major|--minor|--patch"
-      return 1
-      ;;
-  esac
-  
-  git fetch
+  git fetch --tags --prune || return 1
 
   local latest_tag
-  latest_tag=$(git describe --tags --abbrev=0 2>/dev/null)
+  latest_tag=$(git tag --list 'v*' --sort=-v:refname | head -n 1)
   if [[ -z "$latest_tag" ]]; then
     latest_tag="v0.0.0"
   fi
 
-  # Extract version numbers
-  IFS='.' read -r major minor patch <<< "${latest_tag#v}"
+  local version="${latest_tag#v}"
+  local core_version="${version%%-*}"
+  local current_pre=""
+  if [[ "$version" == *-* ]]; then
+    current_pre="${version#*-}"
+  fi
 
-  case "$bump_type" in
-    major)
-      major=$((major + 1))
-      minor=0
-      patch=0
-      ;;
-    minor)
-      minor=$((minor + 1))
-      patch=0
-      ;;
-    patch)
-      patch=$((patch + 1))
-      ;;
-  esac
+  local major minor patch
+  IFS='.' read -r major minor patch <<< "$core_version"
+  if [[ ! "$major" =~ '^[0-9]+$' || ! "$minor" =~ '^[0-9]+$' || ! "$patch" =~ '^[0-9]+$' ]]; then
+    echo "Latest tag is not a supported SemVer tag: $latest_tag"
+    return 1
+  fi
 
-  new_tag="v${major}.${minor}.${patch}"
+  local new_tag
+  if $finalize; then
+    if [[ -z "$current_pre" ]]; then
+      echo "The latest release is already final: $latest_tag"
+      return 1
+    fi
+    new_tag="v${core_version}"
+  elif [[ -n "$bump_type" ]]; then
+    case "$bump_type" in
+      major) major=$((major + 1)); minor=0; patch=0 ;;
+      minor) minor=$((minor + 1)); patch=0 ;;
+      patch) patch=$((patch + 1)) ;;
+    esac
+    new_tag="v${major}.${minor}.${patch}"
+    if [[ -n "$pre_type" ]]; then
+      new_tag+="-${pre_type}"
+    fi
+  elif [[ -n "$current_pre" ]]; then
+    local current_pre_type="${current_pre%%.*}"
+    local current_pre_number="${current_pre#*.}"
+    if [[ "$current_pre_type" == "$pre_type" && "$current_pre" == *.* && "$current_pre_number" =~ '^[0-9]+$' ]]; then
+      new_tag="v${core_version}-${pre_type}.$((current_pre_number + 1))"
+    elif [[ "$current_pre_type" == "$pre_type" ]]; then
+      new_tag="v${core_version}-${pre_type}.1"
+    else
+      new_tag="v${core_version}-${pre_type}"
+    fi
+  else
+    echo "Choose --major, --minor, or --patch when starting a prerelease from $latest_tag"
+    return 1
+  fi
 
-  gh release create "$new_tag" --generate-notes
+  if git rev-parse -q --verify "refs/tags/$new_tag" >/dev/null; then
+    echo "Tag already exists: $new_tag"
+    return 1
+  fi
+
+  gh release create "$new_tag" --generate-notes --target HEAD || return 1
   echo "Released $new_tag"
 }
 
@@ -285,4 +335,3 @@ try_source "$(brew --prefix 2>/dev/null)/share/zsh-syntax-highlighting/zsh-synta
 try_source "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
-
