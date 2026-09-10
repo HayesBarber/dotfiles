@@ -298,7 +298,7 @@ release() {
     return 1
   fi
 
-  gh release create "$new_tag" --generate-notes --target HEAD || return 1
+  gh release create "$new_tag" --generate-notes || return 1
   echo "Released $new_tag"
 }
 
