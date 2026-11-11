@@ -9,6 +9,7 @@ alias current_branch="git rev-parse --abbrev-ref HEAD"
 alias rtc="revert_to_commit"
 alias tree="tree -C -F --dirsfirst"
 alias ls="tree -L 1"
+alias lg="lazygit"
 
 millis() {
     python3 -c 'import time; print(int(time.time() * 1000))'
